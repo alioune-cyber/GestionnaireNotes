@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <LinearLayout
+        android:id="@+id/zoneNote"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/vert">
+
+        <EditText
+            android:id="@+id/edtTitre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titre"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@null" />
+
+        <EditText
+            android:id="@+id/edtContenu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:hint="Contenu"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@null"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paletteForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
+
+        <View android:id="@+id/fColVert" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/vert" android:layout_margin="4dp" />
+        <View android:id="@+id/fColRouge" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/rouge" android:layout_margin="4dp" />
+        <View android:id="@+id/fColBleu" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/bleu" android:layout_margin="4dp" />
+        <View android:id="@+id/fColJaune" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/jaune" android:layout_margin="4dp" />
+        <View android:id="@+id/fColOrange" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/orange" android:layout_margin="4dp" />
+        <View android:id="@+id/fColGris" android:layout_width="32dp" android:layout_height="32dp" android:background="@color/gris" android:layout_margin="4dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEnregistrer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="Créer"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:background="@color/black" />
+
+</LinearLayout>

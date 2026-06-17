@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootMain"
+    android:fitsSystemWindows="true"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/txtTitrePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/txtTitrePage"
+        >
+
+        <EditText
+            android:id="@+id/edtRecherche"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:hint="Rechercher"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gris"
+            android:layout_marginStart="10dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+
+        <Button
+            android:id="@+id/btnFavoris"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Favoris" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txtCompteur"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="0 note(s)"
+            android:textSize="17sp"
+            android:textColor="@color/vert" />
+
+        <Button
+            android:id="@+id/btnTri"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Trier"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnModeSombre"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="12dp"
+            android:text="🌙"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtVide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Aucune notes"
+        android:textColor="@color/gris"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/listNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/secondBar"
+        android:layout_above="@id/btnAjouter"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:divider="@null"
+        android:clipToPadding="false" />
+
+    <LinearLayout
+        android:id="@+id/palette"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_above="@id/btnAjouter"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone">
+
+        <View android:id="@+id/colVert" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/vert" android:layout_margin="4dp" />
+        <View android:id="@+id/colRouge" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/rouge" android:layout_margin="4dp" />
+        <View android:id="@+id/colBleu" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/bleu" android:layout_margin="4dp" />
+        <View android:id="@+id/colJaune" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/jaune" android:layout_margin="4dp" />
+        <View android:id="@+id/colOrange" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/orange" android:layout_margin="4dp" />
+        <View android:id="@+id/colGris" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/gris" android:layout_margin="4dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAjouter"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:text="+"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@color/black" />
+
+</RelativeLayout>
