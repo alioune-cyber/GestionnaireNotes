@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.List;
 
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+
 // Gère l'écran principal affichant la liste des notes et toutes les actions associées
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
         );
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        hideSystemBars();
+
         setContentView(R.layout.activity_main);
 
         dbHelper = new DatabaseHelper(this);
@@ -114,6 +122,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    private void hideSystemBars() {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
+        WindowInsetsControllerCompat controller =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        if (controller != null) {
+            controller.hide(WindowInsetsCompat.Type.systemBars());
+            controller.setSystemBarsBehavior(
+                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            );
+        }
+    }
+
     // Affiche une fenêtre proposant les différents modes de tri disponibles
     private void afficherMenuTri() {
         String[] options = {"Date (récentes)", "Date (anciennes)", "Titre (A-Z)", "Titre (Z-A)"};
@@ -141,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         rafraichirListe();
+        hideSystemBars();
     }
 
     // Récupère les notes selon la recherche, le filtre et le tri actuels, puis met à jour l'affichage

@@ -3,53 +3,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rootMain"
-    android:fitsSystemWindows="true"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
+    android:background="?android:attr/colorBackground"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="3dp">
 
     <TextView
         android:id="@+id/txtTitrePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notes"
-        android:textSize="24sp"
+        android:text="Mes Notes"
+        android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginStart="12dp"/>
+        android:letterSpacing="0.01"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="30dp" />
 
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_below="@id/txtTitrePage"
-        >
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-        <EditText
-            android:id="@+id/edtRecherche"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="48dp"
-            android:hint="Rechercher"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gris"
-            android:layout_marginStart="10dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_recherche"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍"
+                android:textSize="14sp"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/edtRecherche"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:hint="Rechercher"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gris"
+                android:singleLine="true" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnFavoris"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="Favoris" />
+            android:layout_marginStart="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Favoris"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_bouton_pilule" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -66,10 +86,9 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:text="0 note(s)"
-            android:textSize="17sp"
-            android:textColor="@color/vert" />
+            android:textSize="16sp"
+            android:textColor="@color/gris" />
 
         <Button
             android:id="@+id/btnTri"
@@ -83,7 +102,6 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="12dp"
             android:text="🌙"
             android:textSize="14sp" />
     </LinearLayout>
@@ -118,6 +136,7 @@
         android:layout_above="@id/btnAjouter"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="12dp"
         android:visibility="gone">
 
         <View android:id="@+id/colVert" android:layout_width="36dp" android:layout_height="36dp" android:background="@color/vert" android:layout_margin="4dp" />
@@ -134,10 +153,11 @@
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:text="+"
         android:textSize="24sp"
         android:textColor="@color/white"
-        android:background="@color/black" />
+        android:background="@drawable/bg_bouton_rond" />
 
 </RelativeLayout>

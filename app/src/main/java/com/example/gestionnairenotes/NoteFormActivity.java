@@ -9,6 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+
 
 // Gère l'écran de création et de modification d'une note
 public class NoteFormActivity extends AppCompatActivity {
@@ -35,6 +39,7 @@ public class NoteFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_form);
+        hideSystemBars();
 
         dbHelper = new DatabaseHelper(this);
 
@@ -95,5 +100,19 @@ public class NoteFormActivity extends AppCompatActivity {
             dbHelper.ajouterNote(titre, contenu, couleurChoisie);
         }
         finish();
+    }
+
+    private void hideSystemBars() {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
+        WindowInsetsControllerCompat controller =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+
+        if (controller != null) {
+            controller.hide(WindowInsetsCompat.Type.systemBars());
+            controller.setSystemBarsBehavior(
+                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            );
+        }
     }
 }
